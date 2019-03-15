@@ -1,0 +1,97 @@
+<html>
+<head><title></title></head>
+<style type = "text/css">
+
+form {
+  text-align: right;
+
+}
+
+a:link {
+  text-decoration: none;
+}
+dive1{
+  align-content: center;
+}
+
+</style>
+
+
+
+
+    <!-- Navbar Right Menu-->
+
+
+
+
+
+      <!-- User Menu-->
+
+<form method="post" action="service.php">
+
+<input type="submit" name="logout" value="logout">
+
+</form>
+
+
+  </header>
+
+
+<body>
+
+
+<?php
+$db = mysqli_connect('localhost', 'root', '','FilmDB');
+$results=$db->query("SELECT * FROM users");
+//$results=$db->query("DELETE * FROM users WHERE FirstName=$firstname");
+ ?>
+
+<Center><div style="dive1">  <table cellspacing=1 cellpadding=8 border='1'>
+    <tr>
+
+<th >FirstName</th>
+<th >LastName</th>
+<th >UserName</th>
+<th >Email</th>
+<th>Password</th>
+<th>Type</th>
+</tr>
+</center>
+
+<?php while($row=$results->fetch_assoc()):?>
+<tr>
+  <td><?php echo $row['FirstName'];?></td>
+    <td><?php echo $row['LastName'];?></td>
+    <td><?php echo $row['UserName'];?></td>
+    <td><?php echo $row['Email'];?></td>
+    <td><?php echo $row['Password'];?></td>
+    <td><?php echo $row['Type'];?></td>
+</tr>
+<?php endwhile;?>
+</table>
+</div>
+
+
+
+
+<aside class="">
+  <div class=""><img class="" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="Admin Image">
+    <div>
+      <p class="">Admin</p>
+      <p class="">Legendary</p>
+    </div>
+  </div>
+
+        <li><a class="" href="Employee.php"><i class=""></i> Register Employee</a></li>
+        <li><a class="" href="list.php"><i class=""></i> Add Film</a></li>
+
+        <li><a class="" href="widgets.html"><i class=""></i> View Film</a></li>
+      </ul>
+    </li>
+
+</aside>
+
+
+
+</body>
+</html>
